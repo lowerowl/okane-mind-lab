@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OKANE MIND LAB｜FX初心者タイプ診断チェック</title>
+  <meta name="description" content="たった3問であなたのトレード思考タイプが分かる。OKANE MIND LABの無料診断で、最初に覚える3つのルールを確認しよう。">
+  <meta property="og:title" content="OKANE MIND LAB｜FX初心者タイプ診断チェック">
+  <meta property="og:description" content="3問で分かる、あなたのトレード思考タイプ。無料チェック→結果→学びの導線までワンストップ。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lowerowl.github.io/okane-mind-lab/">
+  <meta name="theme-color" content="#0E1F3B">
+
+  <style>
+    /* ====== ブランドテーマ ====== */
+    :root{
+      --mint:#D8F3EE;       /* 淡ミント */
+      --navy:#0E1F3B;       /* ネイビー */
+      --gold:#D7B347;       /* ゴールド */
+      --ink:#1B1F24;        /* テキスト濃色 */
+      --muted:#6B7785;      /* 補助テキスト */
+      --bg:#F7FAFC;         /* 背景白寄り */
+    }
+    /* ====== リセット＆ベース ====== */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      color:var(--ink); background:
+        radial-gradient(1200px 600px at 80% -20%, #ffffff 20%, transparent 60%),
+        radial-gradient(1200px 600px at -10% 120%, var(--mint) 10%, #F2FBF8 60%),
+        linear-gradient(#ffffff, #ffffff);
+    }
+    a{color:inherit}
+
+    /* ====== コンテナ ====== */
+    .shell{
+      min-height:100dvh; display:flex; align-items:center; justify-content:center; padding:24px;
+    }
+    .card{
+      width:100%; max-width:720px; background:#fff; border-radius:24px; padding:28px 24px;
+      box-shadow: 0 20px 60px rgba(14,31,59,.12), 0 4px 16px rgba(14,31,59,.06);
+      border:1px solid rgba(14,31,59,.06);
+      overflow:hidden;
+    }
+
+    /* ====== ヘッダ ====== */
+    .brand{
+      display:flex; align-items:center; gap:12px; margin-bottom:10px;
+    }
+    .coin{
+      width:42px; height:42px; border-radius:50%;
+      background: radial-gradient(100% 100% at 30% 30%, #FFF6D6 0%, #FBE9A8 40%, #E7C967 70%, #CBAE4A 100%);
+      box-shadow: inset 0 2px 4px rgba(255,255,255,.7), inset 0 -4px 10px rgba(0,0,0,.15), 0 3px 10px rgba(215,179,71,.35);
+      position:relative; flex:0 0 auto;
+    }
+    .coin:after{
+      content:"💡"; position:absolute; inset:0; display:grid; place-items:center; font-size:20px;
+      filter: drop-shadow(0 1px 0 rgba(0,0,0,.15));
+    }
+    .title{
+      font-weight:900; letter-spacing:.02em; color:var(--navy); line-height:1.1;
+    }
+    .subtitle{ color:var(--muted); margin-top:4px; }
+
+    /* ====== プログレス ====== */
+    .progress{
+      height:8px; background:#EFF3F7; border-radius:999px; overflow:hidden; margin:18px 0 10px;
+      border:1px solid rgba(14,31,59,.07);
+    }
+    .bar{
+      height:100%; width:0%; background: linear-gradient(90deg, var(--gold), #FFD56A);
+      border-radius:999px; transition:width .5s cubic-bezier(.2,.8,.2,1);
+    }
+
+    /* ====== ステップ ====== */
+    .stage{
+      position:relative; min-height:280px; display:grid; place-items:center; padding:8px;
+    }
+    .panel{
+      width:100%; opacity:0; transform:translateY(12px) scale(.98);
+      transition:opacity .45s ease, transform .45s ease;
+      position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; gap:16px; padding:8px;
+    }
+    .panel.active{ opacity:1; transform:none; position:relative; }
+    .q{
+      font-size:1.35rem; font-weight:800; color:var(--navy); line-height:1.35;
+      text-wrap:balance;
+    }
+    .choices{
+      display:grid; gap:10px; margin-top:4px;
+    }
+    .btn{
+      border:1.5px solid rgba(14,31,59,.12);
+      padding:14px 16px; border-radius:14px; background:#fff;
+      font-weight:700; letter-spacing:.01em; text-align:left; cursor:pointer;
+      transition: transform .06s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .btn:hover{ box-shadow:0 6px 18px rgba(14,31,59,.10); border-color: rgba(14,31,59,.22) }
+    .btn:active{ transform:translateY(1px) }
+    .pill{
+      display:inline-grid; place-items:center; width:26px; height:26px; border-radius:50%;
+      background:var(--mint); color:var(--navy); font-weight:900; margin-right:10px; border:1px solid rgba(14,31,59,.12)
+    }
+
+    /* ====== アクションバー ====== */
+    .actions{ display:flex; justify-content:space-between; align-items:center; margin-top:8px; gap:8px;}
+    .ghost{
+      background:transparent; border:none; color:var(--muted); font-weight:700; padding:10px 12px; border-radius:10px; cursor:pointer;
+    }
+    .cta{
+      margin-left:auto; background:var(--navy); color:#fff; border:none; padding:12px 16px; border-radius:12px; font-weight:800; cursor:pointer;
+      transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
+      box-shadow: 0 10px 24px rgba(14,31,59,.25);
+    }
+    .cta:hover{ background:#132a4f }
+    .cta:active{ transform:translateY(1px) }
+
+    /* ====== 結果 ====== */
+    .result-badge{
+      display:inline-block; padding:8px 12px; border-radius:999px;
+      background: linear-gradient(90deg, var(--mint), #EAF8F5);
+      border:1px solid rgba(14,31,59,.08); color:var(--navy); font-weight:800; letter-spacing:.03em;
+    }
+    .result-box{
+      background:linear-gradient(180deg, #ffffff, #FBFEFF);
+      border:1px solid rgba(14,31,59,.08); border-radius:16px; padding:16px; margin-top:8px;
+    }
+    .rec{
+      display:flex; gap:10px; align-items:flex-start; padding:12px; border-radius:12px;
+      background:#0e1f3b; color:#fff;
+      box-shadow: 0 10px 24px rgba(14,31,59,.25);
+    }
+    .rec .star{ color:#FFD56A; margin-right:2px }
+    .primary-link{
+      display:inline-block; margin-top:12px; background:linear-gradient(90deg, var(--gold), #FFD56A);
+      color:#1d1200; font-weight:900; padding:12px 16px; border-radius:12px; text-decoration:none;
+      box-shadow: 0 10px 24px rgba(215,179,71,.35);
+    }
+
+    /* ====== フッタ ====== */
+    .foot{ margin-top:16px; color:var(--muted); font-size:.9rem }
+
+    /* ====== モバイル最適 ====== */
+    @media (min-width:720px){
+      .q{ font-size:1.5rem }
+      .card{ padding:32px 28px }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <main class="card" role="main" aria-labelledby="app-title">
+      <header class="brand" aria-label="ブランド">
+        <div class="coin" aria-hidden="true"></div>
+        <div>
+          <div id="app-title" class="title">OKANE MIND LAB</div>
+          <div class="subtitle">FX初心者タイプ診断チェック（所要1分）</div>
+        </div>
+      </header>
+
+      <div class="progress" aria-hidden="true"><div class="bar" id="bar"></div></div>
+
+      <section class="stage" id="stage" aria-live="polite">
+        <!-- ステップ0：イントロ -->
+        <div class="panel active" data-step="0">
+          <div class="q">あなたの「トレード思考タイプ」を3問で診断します。</div>
+          <div class="choices">
+            <button class="cta" id="start">診断をはじめる</button>
+          </div>
+          <p class="subtitle">※ すべて選択式／個人情報の入力はありません</p>
+        </div>
+
+        <!-- Q1 -->
+        <div class="panel" data-step="1">
+          <div class="q">トレード中に一番怖いのはどれ？</div>
+          <div class="choices">
+            <button class="btn" data-a="A"><span class="pill">A</span>損失が出ること</button>
+            <button class="btn" data-a="B"><span class="pill">B</span>チャンスを逃すこと</button>
+            <button class="btn" data-a="C"><span class="pill">C</span>判断を間違うこと</button>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="panel" data-step="2">
+          <div class="q">利益が出た時、どうしがち？</div>
+          <div class="choices">
+            <button class="btn" data-a="A"><span class="pill">A</span>すぐ確定したくなる</button>
+            <button class="btn" data-a="B"><span class="pill">B</span>もっと伸ばしたくなる</button>
+            <button class="btn" data-a="C"><span class="pill">C</span>落ち着いて次を考える</button>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="panel" data-step="3">
+          <div class="q">休日に相場を見ていると…？</div>
+          <div class="choices">
+            <button class="btn" data-a="A"><span class="pill">A</span>気になって仕方ない</button>
+            <button class="btn" data-a="B"><span class="pill">B</span>分析してしまう</button>
+            <button class="btn" data-a="C"><span class="pill">C</span>見ないようにして休む</button>
+          </div>
+        </div>
+
+        <!-- 結果 -->
+        <div class="panel" data-step="4" id="result">
+          <span class="result-badge" id="type-badge">診断結果</span>
+          <div class="q" id="type-title" style="margin-top:6px">あなたのタイプは…</div>
+          <div class="result-box" id="type-desc">結果テキスト</div>
+
+          <div class="rec" role="note" aria-label="次の行動のおすすめ">
+            <div class="star">★</div>
+            <div>
+              <div style="font-weight:900">次の一歩：</div>
+              <div id="next-step">初心者でも自分のペースで練習できる「デモトレード」を推奨。</div>
+              <a class="primary-link" id="a8link" href="#" target="_blank" rel="nofollow noopener">無料ガイドと練習を見てみる</a>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="ghost" id="restart">もう一度診断する</button>
+            <button class="cta" id="share">診断リンクをコピー</button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="foot">
+        © OKANE MIND LAB — 学びは60秒から。/ この診断は教育目的であり、投資助言ではありません。
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // ====== 設定：A8リンク（※君のリンクを設置済み） ======
+    const A8_LINK = "https://px.a8.net/svt/ejp?a8mat=3B7CT9+1THPBM+1WP2+61C2P";
+
+    // ====== 進行ロジック ======
+    const panels = Array.from(document.querySelectorAll('.panel'));
+    const bar = document.getElementById('bar');
+    const stageEl = document.getElementById('stage');
+    const a8btn = document.getElementById('a8link');
+    a8btn.href = A8_LINK;
+
+    let step = 0;
+    const maxStep = 4; // 0=intro, 1..3=Q, 4=result
+    const answers = [];
+
+    const show = (n)=>{
+      panels.forEach(p => p.classList.remove('active'));
+      const target = panels.find(p => Number(p.dataset.step) === n);
+      if(target){ target.classList.add('active'); }
+      const percent = Math.min(100, Math.round((Math.max(0, n-0)/ (maxStep-0)) * 100));
+      bar.style.width = (n===4?100:percent*0.8) + "%"; // 結果で100%
+      step = n;
+    };
+
+    const next = ()=> show(step+1);
+    const back = ()=> show(Math.max(0, step-1));
+
+    // イントロ開始
+    document.getElementById('start').addEventListener('click', next);
+
+    // 回答ボタン
+    stageEl.addEventListener('click', (e)=>{
+      const btn = e.target.closest('.btn');
+      if(!btn) return;
+      const val = btn.dataset.a; // A/B/C
+      if(val){ answers.push(val); next(); }
+      if(step===4){ renderResult(); }
+    });
+
+    // 結果表示
+    function renderResult(){
+      const count = {A:0, B:0, C:0};
+      answers.forEach(v => { if(count[v] != null) count[v]++; });
+      // 最多タイプ
+      let type = 'A';
+      if(count.B > count[type]) type='B';
+      if(count.C > count[type]) type='C';
+
+      const map = {
+        A: {
+          title: "慎重トレーダータイプ（守備重視）",
+          desc: "損を避ける意識が強く、ルール順守が得意。エントリーは厳選型。利確早めになりがちなので、利確ルールを“数値化”しておくと◎（例：RR比1.5到達で半分利確）。"
+        },
+        B: {
+          title: "感覚トレーダータイプ（波乗り重視）",
+          desc: "チャンスを掴む嗅覚があり、トレンドに乗るのが得意。ただしオーバートレードに注意。時間帯と通貨ペアを固定し、\"やらない回\"を増やすと勝率が安定。"
+        },
+        C: {
+          title: "分析トレーダータイプ（データ重視）",
+          desc: "冷静に比較検討できる理性的タイプ。検証を積むほど伸びる。負けても崩れにくい一方、機会損失が増えやすいので、\"出すべき時は出す\"基準も数字で決めると◎。"
+        }
+      };
+
+      const data = map[type];
+      document.getElementById('type-badge').textContent = "診断結果";
+      document.getElementById('type-title').textContent = `あなたは「${data.title}」`;
+      document.getElementById('type-desc').textContent = data.desc;
+
+      // 次の一歩文言（タイプ別の言い回し）
+      const nextStep = {
+        A: "安全第一で練習できる「デモトレード」から手順を確認→慣れたら小ロットで実践。",
+        B: "ルール化×実戦の反復がハマる。「デモ→小ロット」の二段構えで波に乗る感覚を磨こう。",
+        C: "検証×実戦の行き来で精度UP。ルールのバックテスト→小ロット実戦→微修正のループが最短。"
+      };
+      document.getElementById('next-step').textContent = nextStep[type];
+
+      // スクロール軽アニメ（視線誘導）
+      setTimeout(()=>window.scrollTo({top:0, behavior:"smooth"}), 60);
+    }
+
+    // 再診断
+    document.getElementById('restart').addEventListener('click', ()=>{
+      answers.length = 0;
+      show(1);
+    });
+
+    // 共有（URLコピー）
+    document.getElementById('share').addEventListener('click', async ()=>{
+      const url = location.href;
+      try{
+        await navigator.clipboard.writeText(url);
+        alert("診断リンクをコピーしました！");
+      }catch(e){
+        prompt("以下をコピーしてください：", url);
+      }
+    });
+
+    // 初期表示
+    show(0);
+  </script>
+</body>
+</html>

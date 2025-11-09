@@ -4,27 +4,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>OKANE MIND LAB｜FXはじめて診断（60秒）</title>
-  <meta name="description" content="FX未経験・初心者向け。3問に答えるだけで、自分に合った最初の一歩（学び方／練習方法）が分かる無料診断。結果ページからスターターガイド＆デモ体験へ。">
+  <meta name="description" content="FX未経験・初心者向け。3問に答えるだけで、自分に合った最初の一歩（学び方／練習方法）が分かる無料診断。">
   <meta property="og:title" content="OKANE MIND LAB｜FXはじめて診断（60秒）">
-  <meta property="og:description" content="FXが気になり始めた人のための、やさしい無料診断。3問で最初の一歩を提案。">
+  <meta property="og:description" content="FXが気になり始めた人のための、やさしい入口チェック。3問で最初の一歩を提案。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lowerowl.github.io/okane-mind-lab/">
   <meta name="theme-color" content="#111827">
 
   <style>
-    /* ========== ベースカラー / 日本向けトーン ========== */
     :root{
-      --bg:#F5F5F7;
+      --bg:#F3F4F6;
       --card:#FFFFFF;
       --navy:#111827;
       --sub:#6B7280;
       --line:#E5E7EB;
-      --accent:#2563EB;   /* 青系アクセント */
+      --accent:#3B82F6;       /* 少しカジュアルな青 */
       --accent-soft:#EFF6FF;
-      --gold:#D4AF37;
-      --radius:18px;
-      --font:"Noto Sans JP", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI",
-             "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      --mint:#E0F7F4;         /* ほんのりミント */
+      --radius:20px;
+      --font:"Noto Sans JP",-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI",
+             "Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
     }
 
     *{box-sizing:border-box;}
@@ -33,122 +32,122 @@
       margin:0;
       font-family:var(--font);
       color:var(--navy);
-      background-color:var(--bg);
+      background:
+        radial-gradient(900px 600px at 50% 0%, #FFFFFF, transparent),
+        radial-gradient(900px 600px at 0% 100%, var(--mint), transparent),
+        var(--bg);
       -webkit-font-smoothing:antialiased;
     }
     a{color:inherit;text-decoration:none;}
 
-    /* ========== レイアウト ========== */
+    /* 全体センタリング */
     .shell{
       min-height:100dvh;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:20px;
+      padding:24px 14px;
     }
     .card{
       width:100%;
       max-width:720px;
+      margin:auto;
       background:var(--card);
       border-radius:var(--radius);
-      padding:24px 20px 20px;
-      box-shadow:0 14px 40px rgba(15,23,42,0.08);
-      border:1px solid var(--line);
+      padding:24px 18px 18px;
+      box-shadow:0 18px 40px rgba(15,23,42,0.08);
+      border:1px solid rgba(148,163,253,0.10);
+      text-align:center;
     }
 
-    /* ========== ヘッダー ========== */
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:8px;
-    }
+    /* ヘッダ */
     .logo-wrap{
-      width:34px;
-      height:34px;
+      width:40px;
+      height:40px;
       border-radius:50%;
-      background: radial-gradient(circle at 30% 20%, #FFFFFF, #E5E7EB);
+      background:radial-gradient(circle at 30% 20%, #fff, #E5E7EB);
       border:1px solid #D4D4D8;
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:16px;
+      margin:0 auto 4px;
+      font-size:18px;
+      color:#111827;
     }
     .brand-label{
-      font-size:11px;
+      font-size:10px;
       font-weight:600;
-      letter-spacing:.14em;
+      letter-spacing:.16em;
       text-transform:uppercase;
       color:var(--sub);
     }
     .brand-title{
-      font-size:17px;
+      font-size:18px;
       font-weight:800;
-      letter-spacing:.02em;
+      letter-spacing:.03em;
+      margin-top:2px;
       color:var(--navy);
-      line-height:1.3;
     }
     .subtitle{
       font-size:12px;
       color:var(--sub);
+      margin-top:2px;
+    }
+
+    /* リードコピー */
+    .lead{
+      margin:16px auto 4px;
+      font-size:18px;
+      font-weight:700;
+      line-height:1.7;
+      color:var(--navy);
+      max-width:520px;
+    }
+    .lead strong{
+      color:var(--accent);
+      font-weight:800;
+    }
+    .note-small{
+      font-size:10px;
+      color:var(--sub);
       margin:2px 0 0;
     }
 
-    /* ========== 見出しコピー ========== */
-    .lead{
-      margin-top:14px;
-      margin-bottom:6px;
-      font-size:18px;
-      font-weight:700;
-      line-height:1.6;
-      color:var(--navy);
-    }
-    .lead strong{
-      font-weight:800;
-      color:var(--accent);
-    }
-    .note-small{
-      font-size:11px;
-      color:var(--sub);
-      margin-top:2px;
-    }
-    .br-pc{display:none;}
-    @media (min-width:720px){
-      .lead{font-size:19px;}
-      .br-pc{display:inline;}
-    }
-
-    /* ========== 進捗バー ========== */
+    /* 進捗バー */
     .progress{
       width:100%;
+      max-width:520px;
+      margin:14px auto 6px;
       height:6px;
-      background:#F3F4F6;
       border-radius:999px;
+      background:#E5E7EB;
       overflow:hidden;
-      margin:14px 0 4px;
     }
     .bar{
       height:100%;
       width:0%;
-      background:linear-gradient(90deg, var(--accent), #60A5FA);
+      background:linear-gradient(90deg,var(--accent),#60A5FA);
       border-radius:999px;
-      transition:width .4s cubic-bezier(.25,.8,.25,1);
+      transition:width .35s cubic-bezier(.3,.8,.3,1);
     }
 
-    /* ========== 質問ステージ ========== */
+    /* ステージ */
     .stage{
       position:relative;
-      min-height:240px;
-      padding-top:6px;
+      min-height:230px;
+      margin-top:4px;
     }
     .panel{
       position:absolute;
       inset:0;
-      padding:4px 0 0;
       opacity:0;
       transform:translateY(10px);
-      transition:opacity .35s ease, transform .35s ease;
+      transition:opacity .3s ease, transform .3s ease;
       pointer-events:none;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
     }
     .panel.active{
       position:relative;
@@ -157,57 +156,53 @@
       pointer-events:auto;
       z-index:1;
     }
+
     .q{
-      font-size:16px;
+      font-size:15px;
       font-weight:700;
-      line-height:1.7;
+      line-height:1.8;
       color:var(--navy);
-      margin-bottom:10px;
-    }
-    @media (min-width:720px){
-      .q{font-size:17px;}
+      max-width:520px;
+      margin:4px auto 4px;
     }
 
+    /* 選択肢ボタン */
     .choices{
       display:grid;
       gap:8px;
+      width:100%;
+      max-width:520px;
     }
-
     .btn{
       width:100%;
-      padding:11px 12px;
-      border-radius:12px;
+      padding:10px 11px;
+      border-radius:14px;
       border:1px solid #E5E7EB;
       background:#FFFFFF;
-      text-align:left;
-      font-size:14px;
-      font-weight:500;
-      color:var(--navy);
-      cursor:pointer;
       display:flex;
       align-items:flex-start;
       gap:8px;
-      transition:all .16s ease;
+      text-align:left;
+      cursor:pointer;
+      transition:all .14s ease;
+      font-size:13px;
+      color:var(--navy);
     }
     .btn-label{
       width:22px;
       height:22px;
       border-radius:999px;
-      border:1px solid #BFDBFE;
       background:var(--accent-soft);
+      border:1px solid #BFDBFE;
+      font-size:11px;
       color:var(--accent);
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:11px;
-      font-weight:700;
       flex-shrink:0;
+      font-weight:700;
     }
-    .btn span.text{
-      flex:1;
-      line-height:1.6;
-    }
-
+    .btn span.text{line-height:1.7;}
     .btn:hover{
       background:#F9FAFB;
       border-color:#BFDBFE;
@@ -216,17 +211,17 @@
     }
     .btn:active{
       transform:translateY(0);
-      box-shadow:0 2px 6px rgba(15,23,42,0.08);
+      box-shadow:0 2px 6px rgba(15,23,42,0.10);
     }
 
-    /* ========== CTAボタン（開始・共有など） ========== */
+    /* 診断開始ボタン */
     .cta-main{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:6px;
-      padding:11px 18px;
-      margin-top:8px;
+      padding:10px 18px;
+      margin-top:6px;
       border:none;
       border-radius:999px;
       background:var(--accent);
@@ -234,18 +229,79 @@
       font-size:13px;
       font-weight:700;
       cursor:pointer;
-      box-shadow:0 10px 22px rgba(37,99,235,0.26);
-      transition:all .16s ease;
+      box-shadow:0 10px 22px rgba(59,130,246,0.26);
+      transition:all .14s ease;
     }
     .cta-main span.icon{font-size:15px;}
-    .cta-main:hover{background:#1D4ED8;}
-    .cta-main:active{transform:translateY(1px);box-shadow:0 5px 12px rgba(37,99,235,0.32);}
+    .cta-main:hover{background:#2563EB;}
+    .cta-main:active{
+      transform:translateY(1px);
+      box-shadow:0 5px 12px rgba(37,99,235,0.32);
+    }
 
+    /* 結果表示 */
+    .result-label{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:4px 9px;
+      border-radius:999px;
+      background:#F9FAFB;
+      border:1px solid #E5E7EB;
+      font-size:10px;
+      color:var(--sub);
+      margin-top:4px;
+    }
+    .result-label span.dot{
+      width:6px;height:6px;border-radius:999px;background:var(--accent);
+    }
+    .result-title{
+      margin:6px auto 4px;
+      font-size:15px;
+      font-weight:700;
+      line-height:1.7;
+      max-width:520px;
+      color:var(--navy);
+    }
+    .result-text{
+      font-size:13px;
+      line-height:1.8;
+      color:var(--navy);
+      max-width:520px;
+      margin:0 auto 10px;
+      padding:10px 12px;
+      border-radius:14px;
+      background:#F9FAFB;
+      border:1px solid #E5E7EB;
+      text-align:left;
+    }
+
+    /* 誘導ボタン（結果画面用） */
+    .primary-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      margin:4px auto 0;
+      padding:10px 16px;
+      border-radius:999px;
+      border:none;
+      background:var(--accent);
+      color:#FFFFFF;
+      font-size:12px;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 10px 22px rgba(59,130,246,0.26);
+      transition:all .14s ease;
+    }
+    .primary-cta span.icon{font-size:14px;}
+    .primary-cta:hover{background:#2563EB;}
+    .primary-cta:active{transform:translateY(1px);}
+    
     .actions{
       display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:8px;
+      justify-content:center;
+      gap:14px;
       margin-top:10px;
       flex-wrap:wrap;
     }
@@ -253,135 +309,139 @@
       border:none;
       background:transparent;
       color:var(--sub);
-      font-size:11px;
+      font-size:10px;
       cursor:pointer;
-      padding:6px 4px;
+      padding:4px 6px;
     }
     .cta-sub{
-      margin-left:auto;
-      padding:8px 12px;
-      border-radius:999px;
       border:none;
       background:#111827;
-      color:#FFF;
-      font-size:11px;
-      font-weight:600;
-      cursor:pointer;
+      color:#FFFFFF;
+      font-size:10px;
+      padding:6px 10px;
+      border-radius:999px;
       display:inline-flex;
       align-items:center;
       gap:4px;
+      cursor:pointer;
     }
 
-    /* ========== 結果表示 ========== */
-    .result-label{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:6px 10px;
-      border-radius:999px;
-      background:#F9FAFB;
-      border:1px solid #E5E7EB;
-      font-size:10px;
+    /* フッター */
+    .foot{
+      margin-top:14px;
+      font-size:9px;
       color:var(--sub);
-      margin-bottom:6px;
-    }
-    .result-label span.dot{
-      width:6px;height:6px;border-radius:999px;background:var(--accent);
-    }
-    .result-title{
-      font-size:15px;
-      font-weight:700;
-      margin-bottom:6px;
-      line-height:1.7;
-    }
-    .result-box{
-      padding:10px 11px;
-      border-radius:12px;
-      border:1px solid #E5E7EB;
-      background:#FFFFFF;
-      font-size:13px;
-      color:var(--navy);
-      line-height:1.7;
+      line-height:1.6;
     }
 
-    .rec-box{
-      margin-top:10px;
-      padding:10px 11px;
-      border-radius:12px;
-      background:var(--accent-soft);
-      border:1px solid #BFDBFE;
-      font-size:12px;
-      color:#1F2937;
-      line-height:1.7;
+    /* ポップアップ（提案） */
+    .overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(15,23,42,0.24);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .22s ease;
+      z-index:40;
     }
-    .rec-title{
-      font-size:11px;
+    .overlay.show{
+      opacity:1;
+      pointer-events:auto;
+    }
+    .popup{
+      width:100%;
+      max-width:360px;
+      background:#FFFFFF;
+      border-radius:18px;
+      padding:16px 14px 14px;
+      box-shadow:0 20px 45px rgba(15,23,42,0.28);
+      text-align:left;
+    }
+    .popup-label{
+      font-size:10px;
       font-weight:700;
       color:var(--accent);
       margin-bottom:2px;
     }
-    .primary-link{
+    .popup-title{
+      font-size:14px;
+      font-weight:700;
+      margin-bottom:6px;
+      color:var(--navy);
+      line-height:1.7;
+    }
+    .popup-text{
+      font-size:12px;
+      color:var(--navy);
+      line-height:1.7;
+      margin-bottom:8px;
+    }
+    .popup-actions{
+      display:flex;
+      justify-content:flex-end;
+      gap:6px;
+      align-items:center;
+    }
+    .popup-close{
+      border:none;
+      background:transparent;
+      font-size:10px;
+      color:var(--sub);
+      cursor:pointer;
+      padding:4px 4px;
+    }
+    .popup-link{
       display:inline-flex;
       align-items:center;
-      gap:6px;
-      margin-top:8px;
-      padding:9px 13px;
-      border-radius:10px;
-      background:linear-gradient(90deg, #FACC15, #F97316);
+      gap:5px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:none;
+      background:linear-gradient(90deg,#FACC15,#FB923C);
       color:#111827;
       font-size:11px;
       font-weight:700;
-      box-shadow:0 8px 18px rgba(248,181,0,0.25);
+      cursor:pointer;
+      text-decoration:none;
+      box-shadow:0 10px 22px rgba(248,181,0,0.32);
     }
-    .primary-link span.icon{font-size:13px;}
-
-    /* ========== フッター ========== */
-    .foot{
-      margin-top:14px;
-      padding-top:10px;
-      border-top:1px solid #F3F4F6;
-      font-size:9px;
-      color:#9CA3AF;
-      line-height:1.6;
-    }
+    .popup-link span.icon{font-size:13px;}
   </style>
 </head>
 <body>
   <div class="shell">
     <main class="card" role="main" aria-labelledby="app-title">
       <!-- ブランド -->
-      <header class="brand">
-        <div class="logo-wrap" aria-hidden="true">¥</div>
-        <div>
-          <div class="brand-label">OKANE MIND LAB</div>
-          <div class="brand-title" id="app-title">FXはじめて診断</div>
-          <p class="subtitle">FXが気になり始めた人向けの、やさしい入口チェック。</p>
-        </div>
-      </header>
+      <div class="logo-wrap">¥</div>
+      <div class="brand-label">OKANE MIND LAB</div>
+      <h1 class="brand-title" id="app-title">FXはじめて診断</h1>
+      <p class="subtitle">FXが気になり始めた人向けの、やさしい入り口チェック。</p>
 
-      <!-- リードコピー -->
-      <div class="lead">
-        3つの質問に答えるだけで、<br class="br-pc">
+      <!-- リード -->
+      <p class="lead">
+        3つの質問に答えるだけで、<br>
         あなたに合う<strong>「最初の一歩」</strong>が見つかります。
-      </div>
-      <p class="note-small">※ 完全無料／個人情報なし／FX未経験・初心者向け</p>
+      </p>
+      <p class="note-small">完全無料／個人情報なし／FX未経験・初心者向け</p>
 
       <!-- 進捗バー -->
       <div class="progress" aria-hidden="true">
         <div class="bar" id="bar"></div>
       </div>
 
-      <!-- ステージ -->
+      <!-- 質問エリア -->
       <section class="stage" id="stage" aria-live="polite">
         <!-- Intro -->
         <div class="panel active" data-step="0">
           <p class="q">
-            「興味はあるけど難しそう」「損しそうで怖い」そんな人向けに、<br class="br-pc">
+            「興味はあるけど難しそう」「損しそうで怖い」そんな人のために、<br>
             いまの状態から無理なく始めるヒントだけをまとめました。
           </p>
           <button class="cta-main" id="start">
-            <span class="icon">▶</span>
-            診断をはじめる（約60秒）
+            <span class="icon">▶</span> 診断をはじめる（約60秒）
           </button>
         </div>
 
@@ -391,26 +451,26 @@
           <div class="choices">
             <button class="btn" data-a="A">
               <div class="btn-label">A</div>
-              <span class="text">完全未経験。名前は知ってるけど、まだ一度も触ったことがない。</span>
+              <span class="text">完全未経験。名前は知っているけれど、まだ一度も取引したことがない。</span>
             </button>
             <button class="btn" data-a="B">
               <div class="btn-label">B</div>
-              <span class="text">用語や仕組みを少しだけ調べたことがある。まだ実際にはやっていない。</span>
+              <span class="text">用語や仕組みを少し調べたことがあるが、実際にはまだ始めていない。</span>
             </button>
             <button class="btn" data-a="C">
               <div class="btn-label">C</div>
-              <span class="text">少額で試したことはあるけれど、自信もルールもまだ固まっていない。</span>
+              <span class="text">少額で試したことはあるが、自信もルールもまだ固まっていない。</span>
             </button>
           </div>
         </div>
 
         <!-- Q2 -->
         <div class="panel" data-step="2">
-          <p class="q">FXを始めるうえで、一番大きい不安はどれ？</p>
+          <p class="q">FXを始めるうえで、一番大きい不安は？</p>
           <div class="choices">
             <button class="btn" data-a="A">
               <div class="btn-label">A</div>
-              <span class="text">お金を減らしてしまいそうで怖い。まずは「安全」が知りたい。</span>
+              <span class="text">お金を減らしてしまいそうで怖い。まずは「安全な始め方」が知りたい。</span>
             </button>
             <button class="btn" data-a="B">
               <div class="btn-label">B</div>
@@ -418,7 +478,7 @@
             </button>
             <button class="btn" data-a="C">
               <div class="btn-label">C</div>
-              <span class="text">情報が多すぎて、何から始めるのが正解なのか分からない。</span>
+              <span class="text">情報が多すぎて、何から手をつけるのが正解か分からない。</span>
             </button>
           </div>
         </div>
@@ -429,11 +489,11 @@
           <div class="choices">
             <button class="btn" data-a="A">
               <div class="btn-label">A</div>
-              <span class="text">まずは「これだけ守ればOK」という、シンプルな3つの入門ルール。</span>
+              <span class="text">これだけ守ればOKという「超入門3つのルール」。</span>
             </button>
             <button class="btn" data-a="B">
               <div class="btn-label">B</div>
-              <span class="text">用語と注文の流れがひと目で分かる、やさしい図解ガイド。</span>
+              <span class="text">用語と注文方法がひと目でわかる、やさしい図解ガイド。</span>
             </button>
             <button class="btn" data-a="C">
               <div class="btn-label">C</div>
@@ -443,28 +503,22 @@
         </div>
 
         <!-- Result -->
-        <div class="panel" data-step="4" id="result">
+        <div class="panel" data-step="4" id="result-panel">
           <div class="result-label">
-            <span class="dot"></span>
-            診断結果
+            <span class="dot"></span> 診断結果
           </div>
-          <div class="result-title" id="type-title">
+          <p class="result-title" id="type-title">
             あなたに合う「最初の一歩」はこちらです。
-          </div>
-          <div class="result-box" id="type-desc">
-            診断結果を読み込み中…
+          </p>
+          <div class="result-text" id="type-desc">
+            診断結果を読み込み中です。
           </div>
 
-          <div class="rec-box">
-            <div class="rec-title">OKANE MIND LABからの提案</div>
-            <div id="next-step">
-              無理なく、減らさず、仕組みを理解しながら進める方法をおすすめします。
-            </div>
-            <a class="primary-link" id="a8link" href="#" target="_blank" rel="nofollow noopener">
-              <span class="icon">↗</span>
-              無料スターターガイド＆デモ体験を見る
-            </a>
-          </div>
+          <!-- 誘導ボタン（押しやすい位置・中央） -->
+          <button class="primary-cta" id="open-rec">
+            <span class="icon">📘</span>
+            自分に合う始め方をチェックする
+          </button>
 
           <div class="actions">
             <button class="ghost" id="restart">もう一度診断する</button>
@@ -482,51 +536,81 @@
     </main>
   </div>
 
+  <!-- 提案ポップアップ -->
+  <div class="overlay" id="overlay">
+    <div class="popup">
+      <div class="popup-label">OKANE MIND LABからの提案</div>
+      <div class="popup-title">無理なく、安全に始めたいあなたへ。</div>
+      <div class="popup-text">
+        はじめの一歩は、いきなり大きく稼ぐことではなく、<br>
+        「減らさずに仕組みを理解すること」です。<br><br>
+        公式の環境で、超入門3ルールとあわせて<br>
+        デモ体験や少額からのステップを確認してみてください。
+      </div>
+      <div class="popup-actions">
+        <button class="popup-close" id="close-popup">あとで</button>
+        <a class="popup-link" id="popup-link" href="#" target="_blank" rel="nofollow noopener">
+          <span class="icon">↗</span> 無料スターターガイド＆デモ体験へ
+        </a>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // ===== A8リンク（君のURL） =====
+    // ===== A8リンク =====
     const A8_LINK = "https://px.a8.net/svt/ejp?a8mat=3B7CT9+1THPBM+1WP2+61C2P";
 
     const panels = Array.from(document.querySelectorAll('.panel'));
     const bar = document.getElementById('bar');
     const stageEl = document.getElementById('stage');
-    const a8btn = document.getElementById('a8link');
-    a8btn.href = A8_LINK;
+    const startBtn = document.getElementById('start');
+    const resultTitleEl = document.getElementById('type-title');
+    const resultDescEl = document.getElementById('type-desc');
+    const openRecBtn = document.getElementById('open-rec');
+
+    const overlay = document.getElementById('overlay');
+    const popupLink = document.getElementById('popup-link');
+    const popupClose = document.getElementById('close-popup');
+    popupLink.href = A8_LINK;
 
     let step = 0;
-    const maxStep = 4; // 0:intro, 1-3:questions, 4:result
+    const maxStep = 4;
     const answers = [];
+    let recShown = false;
+    let recTimer = null;
 
-    function show(n){
+    function showPanel(n){
       panels.forEach(p => p.classList.remove('active'));
       const target = panels.find(p => Number(p.dataset.step) === n);
       if(target) target.classList.add('active');
-      const ratio = Math.max(0, Math.min(1, (n) / maxStep));
+      const ratio = Math.max(0, Math.min(1, n / maxStep));
       bar.style.width = (n === 0 ? 8 : ratio * 100) + "%";
       step = n;
       window.scrollTo({top:0, behavior:"smooth"});
     }
 
-    function next(){ show(step + 1); }
+    function next(){ showPanel(step + 1); }
 
-    // Intro start
-    document.getElementById('start').addEventListener('click', next);
+    // 開始
+    startBtn.addEventListener('click', next);
 
-    // Answer click
+    // 回答クリック
     stageEl.addEventListener('click', (e)=>{
       const btn = e.target.closest('.btn');
       if(!btn) return;
       const val = btn.dataset.a;
       if(!val) return;
       answers.push(val);
+
       if(step < 3){
         next();
       }else{
-        show(4);
+        showPanel(4);
         renderResult();
       }
     });
 
-    // Result logic（未経験〜初心者向けに最適化）
+    // 診断結果ロジック
     function renderResult(){
       const count = {A:0,B:0,C:0};
       answers.forEach(v => { if(count[v] != null) count[v]++; });
@@ -535,40 +619,59 @@
       if(count.B > count[type]) type = 'B';
       if(count.C > count[type]) type = 'C';
 
-      const map = {
-        A:{
-          title:"「はじめの一歩は、とにかく安全に」タイプ",
-          desc:"まずはお金を減らさずに、仕組みと雰囲気に慣れることが大事なタイプ。最低限の3つのルールと、リスクを抑えた始め方を知ってから動くと安心です。"
-        },
-        B:{
-          title:"「理解してから動きたい」タイプ",
-          desc:"全体像を把握できると一気に前へ進めるタイプ。用語や注文手順を図解で押さえてから、デモや小さい金額で実践していく流れが相性◎。"
-        },
-        C:{
-          title:"「試しながら覚えていく」タイプ",
-          desc:"実際に触ってみることで理解が進むタイプ。本番資金をいきなり入れず、デモや少額で“型”を作りながら慣れていくステップが向いています。"
-        }
-      };
+      let title, desc;
+      if(type === 'A'){
+        title = "「はじめの一歩は、とにかく安全に」タイプ";
+        desc = "まずはお金を減らさずに、仕組みと雰囲気に慣れることが大事なタイプ。最低限の3つのルールと、リスクを抑えた始め方を知ってから動くと安心です。";
+      }else if(type === 'B'){
+        title = "「理解してから動きたい」タイプ";
+        desc = "全体像や仕組みをきちんと理解できると、一歩踏み出しやすいタイプ。用語や注文手順を図解で押さえ、納得してからデモや少額実践へ進むとスムーズです。";
+      }else{
+        title = "「試しながら覚えていく」タイプ";
+        desc = "実際に触りながら学ぶことで理解が深まるタイプ。本番資金を急がず、デモや小額で“型”を作りながら慣れていくステップが向いています。";
+      }
 
-      const stepCopy = {
-        A:"最初は「超入門3ルール」とデモ体験から始めて、感覚が掴めてきたら少額の実践へ進むのが安心です。",
-        B:"図解で全体像→デモ→小ロットの順番で、一つずつ不安をつぶしながら進めるのが向いています。",
-        C:"時間帯や金額のルールを決めたうえで、デモ→小ロットで試し、少しずつ自分なりのスタイルを整えていきましょう。"
-      };
+      resultTitleEl.textContent = title;
+      resultDescEl.textContent = desc;
 
-      const data = map[type];
-      document.getElementById('type-title').textContent = data.title;
-      document.getElementById('type-desc').textContent = data.desc;
-      document.getElementById('next-step').textContent = stepCopy[type];
+      // 自動ポップアップ：4.5秒後（ただし1回だけ）
+      if(recTimer) clearTimeout(recTimer);
+      recTimer = setTimeout(showRecommendation, 4500);
     }
 
-    // Restart
-    document.getElementById('restart').addEventListener('click', ()=>{
-      answers.length = 0;
-      show(1);
+    // ポップアップ表示
+    function showRecommendation(){
+      if(recShown) return;
+      recShown = true;
+      overlay.classList.add('show');
+    }
+
+    // 結果画面のボタン → 即ポップアップ
+    openRecBtn.addEventListener('click', ()=>{
+      showRecommendation();
     });
 
-    // Share (URL copy)
+    // ポップアップ閉じる
+    popupClose.addEventListener('click', ()=>{
+      overlay.classList.remove('show');
+    });
+
+    // オーバーレイ背景クリックで閉じる
+    overlay.addEventListener('click', (e)=>{
+      if(e.target === overlay){
+        overlay.classList.remove('show');
+      }
+    });
+
+    // 再診断
+    document.getElementById('restart').addEventListener('click', ()=>{
+      answers.length = 0;
+      recShown = false;
+      if(recTimer) clearTimeout(recTimer);
+      showPanel(1);
+    });
+
+    // シェア
     document.getElementById('share').addEventListener('click', async ()=>{
       const url = location.href;
       try{
@@ -579,8 +682,8 @@
       }
     });
 
-    // Init
-    show(0);
+    // 初期表示
+    showPanel(0);
   </script>
 </body>
 </html>

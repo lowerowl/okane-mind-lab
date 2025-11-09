@@ -18,9 +18,9 @@
       --navy:#111827;
       --sub:#6B7280;
       --line:#E5E7EB;
-      --accent:#3B82F6;       /* 少しカジュアルな青 */
+      --accent:#3B82F6;
       --accent-soft:#EFF6FF;
-      --mint:#E0F7F4;         /* ほんのりミント */
+      --mint:#E0F7F4;
       --radius:20px;
       --font:"Noto Sans JP",-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI",
              "Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
@@ -37,10 +37,10 @@
         radial-gradient(900px 600px at 0% 100%, var(--mint), transparent),
         var(--bg);
       -webkit-font-smoothing:antialiased;
+      font-size:14px;
     }
     a{color:inherit;text-decoration:none;}
 
-    /* 全体センタリング */
     .shell{
       min-height:100dvh;
       display:flex;
@@ -50,20 +50,19 @@
     }
     .card{
       width:100%;
-      max-width:720px;
+      max-width:760px;
       margin:auto;
       background:var(--card);
       border-radius:var(--radius);
-      padding:24px 18px 18px;
+      padding:26px 20px 20px;
       box-shadow:0 18px 40px rgba(15,23,42,0.08);
       border:1px solid rgba(148,163,253,0.10);
       text-align:center;
     }
 
-    /* ヘッダ */
     .logo-wrap{
-      width:40px;
-      height:40px;
+      width:44px;
+      height:44px;
       border-radius:50%;
       background:radial-gradient(circle at 30% 20%, #fff, #E5E7EB);
       border:1px solid #D4D4D8;
@@ -71,54 +70,52 @@
       align-items:center;
       justify-content:center;
       margin:0 auto 4px;
-      font-size:18px;
+      font-size:20px;
       color:#111827;
     }
     .brand-label{
-      font-size:10px;
+      font-size:11px;
       font-weight:600;
       letter-spacing:.16em;
       text-transform:uppercase;
       color:var(--sub);
     }
     .brand-title{
-      font-size:18px;
+      font-size:20px;
       font-weight:800;
       letter-spacing:.03em;
       margin-top:2px;
       color:var(--navy);
     }
     .subtitle{
-      font-size:12px;
+      font-size:13px;
       color:var(--sub);
-      margin-top:2px;
+      margin-top:4px;
     }
 
-    /* リードコピー */
     .lead{
-      margin:16px auto 4px;
-      font-size:18px;
+      margin:18px auto 6px;
+      font-size:19px;
       font-weight:700;
-      line-height:1.7;
+      line-height:1.8;
       color:var(--navy);
-      max-width:520px;
+      max-width:560px;
     }
     .lead strong{
       color:var(--accent);
       font-weight:800;
     }
     .note-small{
-      font-size:10px;
+      font-size:11px;
       color:var(--sub);
       margin:2px 0 0;
     }
 
-    /* 進捗バー */
     .progress{
       width:100%;
-      max-width:520px;
-      margin:14px auto 6px;
-      height:6px;
+      max-width:560px;
+      margin:16px auto 8px;
+      height:7px;
       border-radius:999px;
       background:#E5E7EB;
       overflow:hidden;
@@ -131,23 +128,22 @@
       transition:width .35s cubic-bezier(.3,.8,.3,1);
     }
 
-    /* ステージ */
     .stage{
       position:relative;
-      min-height:230px;
-      margin-top:4px;
+      min-height:260px;
+      margin-top:6px;
     }
     .panel{
       position:absolute;
       inset:0;
       opacity:0;
-      transform:translateY(10px);
+      transform:translateY(12px);
       transition:opacity .3s ease, transform .3s ease;
       pointer-events:none;
       display:flex;
       flex-direction:column;
       align-items:center;
-      gap:10px;
+      gap:12px;
     }
     .panel.active{
       position:relative;
@@ -160,23 +156,22 @@
     .q{
       font-size:15px;
       font-weight:700;
-      line-height:1.8;
+      line-height:1.9;
       color:var(--navy);
-      max-width:520px;
-      margin:4px auto 4px;
+      max-width:560px;
+      margin:6px auto 4px;
     }
 
-    /* 選択肢ボタン */
     .choices{
       display:grid;
-      gap:8px;
+      gap:9px;
       width:100%;
-      max-width:520px;
+      max-width:560px;
     }
     .btn{
       width:100%;
-      padding:10px 11px;
-      border-radius:14px;
+      padding:11px 13px;
+      border-radius:16px;
       border:1px solid #E5E7EB;
       background:#FFFFFF;
       display:flex;
@@ -189,8 +184,8 @@
       color:var(--navy);
     }
     .btn-label{
-      width:22px;
-      height:22px;
+      width:24px;
+      height:24px;
       border-radius:999px;
       background:var(--accent-soft);
       border:1px solid #BFDBFE;
@@ -202,7 +197,7 @@
       flex-shrink:0;
       font-weight:700;
     }
-    .btn span.text{line-height:1.7;}
+    .btn span.text{line-height:1.8;}
     .btn:hover{
       background:#F9FAFB;
       border-color:#BFDBFE;
@@ -214,102 +209,99 @@
       box-shadow:0 2px 6px rgba(15,23,42,0.10);
     }
 
-    /* 診断開始ボタン */
     .cta-main{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:6px;
-      padding:10px 18px;
-      margin-top:6px;
+      padding:11px 22px;
+      margin-top:8px;
       border:none;
       border-radius:999px;
       background:var(--accent);
       color:#FFFFFF;
-      font-size:13px;
+      font-size:14px;
       font-weight:700;
       cursor:pointer;
-      box-shadow:0 10px 22px rgba(59,130,246,0.26);
+      box-shadow:0 10px 24px rgba(59,130,246,0.26);
       transition:all .14s ease;
     }
-    .cta-main span.icon{font-size:15px;}
+    .cta-main span.icon{font-size:16px;}
     .cta-main:hover{background:#2563EB;}
     .cta-main:active{
       transform:translateY(1px);
-      box-shadow:0 5px 12px rgba(37,99,235,0.32);
+      box-shadow:0 5px 14px rgba(37,99,235,0.32);
     }
 
-    /* 結果表示 */
     .result-label{
       display:inline-flex;
       align-items:center;
       gap:6px;
-      padding:4px 9px;
+      padding:5px 10px;
       border-radius:999px;
       background:#F9FAFB;
       border:1px solid #E5E7EB;
-      font-size:10px;
+      font-size:11px;
       color:var(--sub);
-      margin-top:4px;
+      margin-top:6px;
     }
     .result-label span.dot{
       width:6px;height:6px;border-radius:999px;background:var(--accent);
     }
     .result-title{
-      margin:6px auto 4px;
-      font-size:15px;
+      margin:8px auto 4px;
+      font-size:16px;
       font-weight:700;
-      line-height:1.7;
-      max-width:520px;
+      line-height:1.8;
+      max-width:560px;
       color:var(--navy);
     }
     .result-text{
-      font-size:13px;
-      line-height:1.8;
+      font-size:14px;
+      line-height:1.9;
       color:var(--navy);
-      max-width:520px;
-      margin:0 auto 10px;
-      padding:10px 12px;
-      border-radius:14px;
+      max-width:560px;
+      margin:0 auto 12px;
+      padding:11px 13px;
+      border-radius:16px;
       background:#F9FAFB;
       border:1px solid #E5E7EB;
       text-align:left;
     }
 
-    /* 誘導ボタン（結果画面用） */
     .primary-cta{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:6px;
-      margin:4px auto 0;
-      padding:10px 16px;
+      margin:6px auto 0;
+      padding:10px 18px;
       border-radius:999px;
       border:none;
       background:var(--accent);
       color:#FFFFFF;
-      font-size:12px;
+      font-size:13px;
       font-weight:700;
       cursor:pointer;
       box-shadow:0 10px 22px rgba(59,130,246,0.26);
       transition:all .14s ease;
     }
-    .primary-cta span.icon{font-size:14px;}
+    .primary-cta span.icon{font-size:15px;}
     .primary-cta:hover{background:#2563EB;}
     .primary-cta:active{transform:translateY(1px);}
-    
+
     .actions{
       display:flex;
       justify-content:center;
-      gap:14px;
-      margin-top:10px;
+      gap:18px;
+      margin-top:12px;
       flex-wrap:wrap;
     }
     .ghost{
       border:none;
       background:transparent;
       color:var(--sub);
-      font-size:10px;
+      font-size:11px;
       cursor:pointer;
       padding:4px 6px;
     }
@@ -317,8 +309,8 @@
       border:none;
       background:#111827;
       color:#FFFFFF;
-      font-size:10px;
-      padding:6px 10px;
+      font-size:11px;
+      padding:6px 11px;
       border-radius:999px;
       display:inline-flex;
       align-items:center;
@@ -326,19 +318,18 @@
       cursor:pointer;
     }
 
-    /* フッター */
     .foot{
-      margin-top:14px;
-      font-size:9px;
+      margin-top:16px;
+      font-size:10px;
       color:var(--sub);
-      line-height:1.6;
+      line-height:1.7;
     }
 
-    /* ポップアップ（提案） */
+    /* ポップアップ（大きめバナー） */
     .overlay{
       position:fixed;
       inset:0;
-      background:rgba(15,23,42,0.24);
+      background:rgba(15,23,42,0.26);
       display:flex;
       align-items:center;
       justify-content:center;
@@ -353,86 +344,106 @@
     }
     .popup{
       width:100%;
-      max-width:360px;
+      max-width:520px;
+      border-radius:22px;
       background:#FFFFFF;
-      border-radius:18px;
-      padding:16px 14px 14px;
-      box-shadow:0 20px 45px rgba(15,23,42,0.28);
-      text-align:left;
+      box-shadow:0 26px 60px rgba(15,23,42,0.38);
+      overflow:hidden;
     }
-    .popup-label{
-      font-size:10px;
-      font-weight:700;
-      color:var(--accent);
-      margin-bottom:2px;
+    .popup-banner{
+      padding:16px 16px 14px;
+      background:
+        radial-gradient(circle at 0 0, rgba(255,255,255,0.9), transparent),
+        radial-gradient(circle at 100% 0, rgba(191,219,254,0.9), transparent),
+        linear-gradient(135deg,#2563EB,#22C55E);
+      color:#FFFFFF;
+    }
+    .popup-eyecatch{
+      font-size:11px;
+      font-weight:600;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      opacity:0.9;
     }
     .popup-title{
-      font-size:14px;
-      font-weight:700;
-      margin-bottom:6px;
-      color:var(--navy);
+      margin-top:4px;
+      font-size:18px;
+      font-weight:800;
+      line-height:1.6;
+    }
+    .popup-sub{
+      margin-top:2px;
+      font-size:12px;
+      opacity:0.92;
       line-height:1.7;
     }
-    .popup-text{
+    .popup-body{
+      padding:10px 14px 12px;
       font-size:12px;
       color:var(--navy);
-      line-height:1.7;
-      margin-bottom:8px;
+      line-height:1.8;
+      background:#FFFFFF;
     }
     .popup-actions{
       display:flex;
       justify-content:flex-end;
-      gap:6px;
       align-items:center;
+      gap:8px;
+      margin-top:6px;
     }
     .popup-close{
       border:none;
       background:transparent;
-      font-size:10px;
+      font-size:11px;
       color:var(--sub);
       cursor:pointer;
-      padding:4px 4px;
+      padding:4px 6px;
     }
     .popup-link{
       display:inline-flex;
       align-items:center;
-      gap:5px;
-      padding:8px 12px;
+      gap:6px;
+      padding:9px 14px;
       border-radius:999px;
       border:none;
       background:linear-gradient(90deg,#FACC15,#FB923C);
       color:#111827;
-      font-size:11px;
+      font-size:12px;
       font-weight:700;
       cursor:pointer;
       text-decoration:none;
-      box-shadow:0 10px 22px rgba(248,181,0,0.32);
+      box-shadow:0 12px 26px rgba(248,181,0,0.34);
     }
-    .popup-link span.icon{font-size:13px;}
+    .popup-link span.icon{font-size:15px;}
+
+    @media (min-width:900px){
+      body{font-size:15px;}
+      .brand-title{font-size:22px;}
+      .lead{font-size:21px;}
+      .q{font-size:16px;}
+      .result-title{font-size:17px;}
+      .result-text{font-size:14.5px;}
+    }
   </style>
 </head>
 <body>
   <div class="shell">
     <main class="card" role="main" aria-labelledby="app-title">
-      <!-- ブランド -->
       <div class="logo-wrap">¥</div>
       <div class="brand-label">OKANE MIND LAB</div>
       <h1 class="brand-title" id="app-title">FXはじめて診断</h1>
       <p class="subtitle">FXが気になり始めた人向けの、やさしい入り口チェック。</p>
 
-      <!-- リード -->
       <p class="lead">
         3つの質問に答えるだけで、<br>
         あなたに合う<strong>「最初の一歩」</strong>が見つかります。
       </p>
       <p class="note-small">完全無料／個人情報なし／FX未経験・初心者向け</p>
 
-      <!-- 進捗バー -->
       <div class="progress" aria-hidden="true">
         <div class="bar" id="bar"></div>
       </div>
 
-      <!-- 質問エリア -->
       <section class="stage" id="stage" aria-live="polite">
         <!-- Intro -->
         <div class="panel active" data-step="0">
@@ -514,7 +525,6 @@
             診断結果を読み込み中です。
           </div>
 
-          <!-- 誘導ボタン（押しやすい位置・中央） -->
           <button class="primary-cta" id="open-rec">
             <span class="icon">📘</span>
             自分に合う始め方をチェックする
@@ -530,34 +540,37 @@
       </section>
 
       <footer class="foot">
-        この診断は、FXに興味を持ち始めた方向けの学習サポートです。<br>
-        取引を行う際は、ご自身の判断と余裕資金の範囲内でお願いいたします。
+        この診断は、FXに興味を持ち始めた方向けの学習サポートです。取引を行う際は、ご自身の判断と余裕資金の範囲内でお願いいたします。
       </footer>
     </main>
   </div>
 
-  <!-- 提案ポップアップ -->
+  <!-- 提案ポップアップ（大きめバナー） -->
   <div class="overlay" id="overlay">
     <div class="popup">
-      <div class="popup-label">OKANE MIND LABからの提案</div>
-      <div class="popup-title">無理なく、安全に始めたいあなたへ。</div>
-      <div class="popup-text">
-        はじめの一歩は、いきなり大きく稼ぐことではなく、<br>
-        「減らさずに仕組みを理解すること」です。<br><br>
-        公式の環境で、超入門3ルールとあわせて<br>
-        デモ体験や少額からのステップを確認してみてください。
+      <div class="popup-banner">
+        <div class="popup-eyecatch">OKANE MIND LAB RECOMMENDS</div>
+        <div class="popup-title">「安全に試す」から、はじめよう。</div>
+        <div class="popup-sub">
+          超入門3ルールとあわせて、<br>
+          実際の画面に近い環境でデモ体験できる公式サービスをご案内します。
+        </div>
       </div>
-      <div class="popup-actions">
-        <button class="popup-close" id="close-popup">あとで</button>
-        <a class="popup-link" id="popup-link" href="#" target="_blank" rel="nofollow noopener">
-          <span class="icon">↗</span> 無料スターターガイド＆デモ体験へ
-        </a>
+      <div class="popup-body">
+        いきなり大きく勝ちにいくのではなく、<br>
+        まずは<strong>減らさずに仕組みを掴むステップ</strong>を踏むことが大切です。<br>
+        下記のボタンから、無料で使えるスターターガイド＆デモ環境を確認できます。
+        <div class="popup-actions">
+          <button class="popup-close" id="close-popup">あとで</button>
+          <a class="popup-link" id="popup-link" href="#" target="_blank" rel="nofollow noopener">
+            <span class="icon">↗</span> 無料スターターガイド＆デモ体験へ
+          </a>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
-    // ===== A8リンク =====
     const A8_LINK = "https://px.a8.net/svt/ejp?a8mat=3B7CT9+1THPBM+1WP2+61C2P";
 
     const panels = Array.from(document.querySelectorAll('.panel'));
@@ -591,10 +604,8 @@
 
     function next(){ showPanel(step + 1); }
 
-    // 開始
     startBtn.addEventListener('click', next);
 
-    // 回答クリック
     stageEl.addEventListener('click', (e)=>{
       const btn = e.target.closest('.btn');
       if(!btn) return;
@@ -610,7 +621,6 @@
       }
     });
 
-    // 診断結果ロジック
     function renderResult(){
       const count = {A:0,B:0,C:0};
       answers.forEach(v => { if(count[v] != null) count[v]++; });
@@ -628,42 +638,36 @@
         desc = "全体像や仕組みをきちんと理解できると、一歩踏み出しやすいタイプ。用語や注文手順を図解で押さえ、納得してからデモや少額実践へ進むとスムーズです。";
       }else{
         title = "「試しながら覚えていく」タイプ";
-        desc = "実際に触りながら学ぶことで理解が深まるタイプ。本番資金を急がず、デモや小額で“型”を作りながら慣れていくステップが向いています。";
+        desc = "実際に触りながら学ぶことで理解が深まるタイプ。本番資金を急がず、デモや少額で“型”を作りながら慣れていくステップが向いています。";
       }
 
       resultTitleEl.textContent = title;
       resultDescEl.textContent = desc;
 
-      // 自動ポップアップ：4.5秒後（ただし1回だけ）
       if(recTimer) clearTimeout(recTimer);
       recTimer = setTimeout(showRecommendation, 4500);
     }
 
-    // ポップアップ表示
     function showRecommendation(){
       if(recShown) return;
       recShown = true;
       overlay.classList.add('show');
     }
 
-    // 結果画面のボタン → 即ポップアップ
     openRecBtn.addEventListener('click', ()=>{
       showRecommendation();
     });
 
-    // ポップアップ閉じる
     popupClose.addEventListener('click', ()=>{
       overlay.classList.remove('show');
     });
 
-    // オーバーレイ背景クリックで閉じる
     overlay.addEventListener('click', (e)=>{
       if(e.target === overlay){
         overlay.classList.remove('show');
       }
     });
 
-    // 再診断
     document.getElementById('restart').addEventListener('click', ()=>{
       answers.length = 0;
       recShown = false;
@@ -671,7 +675,6 @@
       showPanel(1);
     });
 
-    // シェア
     document.getElementById('share').addEventListener('click', async ()=>{
       const url = location.href;
       try{
@@ -682,7 +685,6 @@
       }
     });
 
-    // 初期表示
     showPanel(0);
   </script>
 </body>
